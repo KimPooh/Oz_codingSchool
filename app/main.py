@@ -7,7 +7,13 @@ from starlette.responses import FileResponse
 from app.apis import practice_apis 
 
 from app.apis import (
-    user_apis, admin_user_api, user_management_apis, user_change_pw_apis)
+    user_apis,
+    admin_user_api, 
+    user_management_apis, 
+    user_change_pw_apis, 
+    admin_user_api, 
+    patient_apis
+    )
 
 
 
@@ -18,7 +24,8 @@ app.include_router(admin_user_api.router)           #권한변경
 app.include_router(user_apis.router)                #회원가입
 app.include_router(user_management_apis.router)     #회원정보수정
 app.include_router(user_change_pw_apis.router)      #비번변경
-
+app.include_router(admin_user_api.router)           #회원권한변경
+app.include_router(patient_apis.router)             #환자등록/상세조회
 
 app.include_router(practice_apis.router)
 
